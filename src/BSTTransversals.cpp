@@ -21,15 +21,90 @@ struct node{
 	int data;
 	struct node *right;
 };
+void inorderTraversal(struct node *root, int *arr);
+void preorderTraversal(struct node *root, int *arr);
+void postorderTraversal(struct node *root, int *arr);
+
+int i = 0, j = 0, k = 0;
 
 
 void inorder(struct node *root, int *arr){
-	
+
+	if (root == NULL || arr == NULL)
+	{
+		arr = NULL;
+		return;
+	}
+	else
+		inorderTraversal(root, arr);
+
+	i = 0;
+
 }
 void preorder(struct node *root, int *arr){
 	
+	if (root == NULL || arr == NULL)
+	{
+		arr = NULL;
+		return;
+	}
+	else
+		preorderTraversal(root, arr);
+
+	j = 0;
 }
 void postorder(struct node *root, int *arr){
 	
+	if (root == NULL || arr == NULL)
+	{
+		arr = NULL;
+		return;
+	}
+	else
+		postorderTraversal(root, arr);
+
+	k = 0;
 }
 
+void inorderTraversal(struct node *root, int *arr1)
+{
+	
+	if (root == NULL) {
+		return;
+	}
+
+	inorderTraversal(root->left, arr1);
+
+	arr1[i++] = root->data;
+
+	inorderTraversal(root->right, arr1);
+
+}
+
+void preorderTraversal(struct node *root, int *arr2)
+{
+	
+	if (root == NULL) {
+		return;
+	}
+
+	arr2[j++] = root->data;
+
+	preorderTraversal(root->left, arr2);
+
+	preorderTraversal(root->right, arr2);
+}
+
+void postorderTraversal(struct node *root, int *arr3)
+{
+	
+	if (root == NULL) {
+		return;
+	}
+
+	postorderTraversal(root->left, arr3);
+
+	postorderTraversal(root->right, arr3);
+
+	arr3[k++] = root->data;
+}
