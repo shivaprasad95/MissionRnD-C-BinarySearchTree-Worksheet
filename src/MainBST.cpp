@@ -53,28 +53,17 @@ int main(){
 	//Use it for testing ,Creating BST etc
 
 	struct node *root = NULL;
-	int nums[10] = { 5, 2, 10, 7, 12 };
+	int nums[10] = { 10, 2, 1, 15, 25, 100, 300 };
 	int arr[10];
-	int elements = 5;
+	int elements = 7;
 	for (int i = 0; i < elements; i++){
 		root = add_node_spec(root, nums[i]);
 	}
 
 	
-	inorder(root, arr);
-	for (int i = 0; i < elements; i++){
-		printf(" %d", arr[i]);
-	}
-	printf("\n\n");
-	preorder(root, arr);
-	for (int i = 0; i < elements; i++){
-		printf(" %d", arr[i]);
-	}
-	printf("\n\n");
-	postorder(root, arr);
-	for (int i = 0; i < elements; i++){
-		printf(" %d", arr[i]);
-	}
+	get_height(root);
+	get_left_subtree_sum(root);
+	get_right_subtree_sum(root);
 
 	getchar();
 
