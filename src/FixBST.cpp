@@ -31,7 +31,52 @@ struct node{
 	int data;
 	struct node *right;
 };
+void fixit(struct node* root, struct node** first, struct node** middle, struct node** last, struct node** temp);
+void swap(int* a, int* b);
 
 void fix_bst(struct node *root){
 
+	struct node *first = NULL, *middle = NULL, *last = NULL, *temp = NULL;
+
+	fixit(root, &first, &middle, &last, &temp);
+
+	if (first && last)
+		swap(&(first->data), &(last->data));
+	else if (first && middle) 
+		swap(&(first->data), &(middle->data));
+
 }
+
+void swap(int* a, int* b)
+{
+	int t = *a;
+	*a = *b;
+	*b = t;
+}
+
+void fixit(struct node* root, struct node** first,struct node** middle, struct node** last,struct node** temp)
+{
+	if (root)
+	{
+		fixit(root->left, first, middle, last, temp);
+
+	
+		if (*temp && root->data < (*temp)->data)
+		{
+			
+			if (*first == NULL)
+			{
+				*first = *temp;
+				*middle = root;
+			}
+
+			else
+				*last = root;
+		}
+
+		*temp = root;
+
+		fixit(root->right, first, middle, last, temp);
+	}
+}
+
