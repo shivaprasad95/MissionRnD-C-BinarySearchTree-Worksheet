@@ -52,11 +52,19 @@ int main(){
 
 	//Use it for testing ,Creating BST etc
 
-	int arr[10] = { 1, 2, 3, 4, 5 };
 	struct node *root = NULL;
-	root = convert_array_to_bst(arr, 1);
-	
-	
+	int nums[10] = { 50, 25, 75, 30, 27, 60, 99, 53, 51, 57 };
+
+	for (int i = 0; i < 10; i++){
+		root = add_node_spec(root, nums[i]);
+	}
+
+
+	int *arr = BSTRighttoLeftRows(root);
+
+	for (int i = 0; i < 10; i++)
+		printf(" %d", arr[i]);
+
 	getchar();
 
 }
