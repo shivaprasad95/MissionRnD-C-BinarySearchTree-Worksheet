@@ -33,9 +33,34 @@ struct node{
 	struct node *right;
 };
 
+struct node* convert(int *arr, int start, int end);
 
 struct node * convert_array_to_bst(int *arr, int len){
 	
+	if (arr == NULL)
 	return NULL;
+
+	struct node * root = convert(arr,0,len-1);
+
+	return root;
+
+}
+
+struct node* convert(int *arr, int start, int end)
+{
+	if (start > end)
+		return NULL;
+
+	int mid = (start + end) / 2;
+
+	struct node* root = (struct node*)malloc(sizeof(struct node));
+	root->data = arr[mid];
+	root->right = NULL;
+	root->left = NULL;
+	
+	root->left = convert(arr, start, mid - 1);
+	root->right = convert(arr, mid + 1, end);
+
+	return root;
 }
 

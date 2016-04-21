@@ -52,19 +52,11 @@ int main(){
 
 	//Use it for testing ,Creating BST etc
 
+	int arr[10] = { 1, 2, 3, 4, 5 };
 	struct node *root = NULL;
-	int nums[10] = { 10, 2, 1, 15, 25, 100, 300 };
-	int arr[10];
-	int elements = 7;
-	for (int i = 0; i < elements; i++){
-		root = add_node_spec(root, nums[i]);
-	}
-
+	root = convert_array_to_bst(arr, 1);
 	
-	get_height(root);
-	get_left_subtree_sum(root);
-	get_right_subtree_sum(root);
-
+	
 	getchar();
 
 }

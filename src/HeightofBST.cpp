@@ -48,6 +48,7 @@ int get_height(struct node *root){
 
 	if (root == NULL)
 		return 0;
+
 	else {
 		int h = height(root);
 
@@ -59,6 +60,7 @@ int get_left_subtree_sum(struct node *root){
 
 	if (root == NULL)
 		return 0;
+
 	else{
 		int l = lsum(root->left);
 
@@ -69,6 +71,7 @@ int get_right_subtree_sum(struct node *root){
 	
 	if (root == NULL)
 		return 0;
+
 	else{
 		int r = rsum(root->right);
 
